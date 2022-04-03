@@ -12,8 +12,9 @@ namespace GradeBook.GradeBooks
         }
         public override char GetLetterGrade(double averageGrade)
         {
-            if (Students.Count < 5) throw new InvalidOperationException();
-            else if (averageGrade >= 80) 
+            if (Students.Count < 5) 
+                throw new InvalidOperationException();
+            else if (averageGrade >= 80)
                 return 'A';
             else if (averageGrade >= 60 && averageGrade < 80) 
                 return 'B';
@@ -21,10 +22,29 @@ namespace GradeBook.GradeBooks
                 return 'C';
             else if (averageGrade >= 20 && averageGrade < 40) 
                 return 'D';
-            else return 'F';
+            else 
+                return 'F';
 
         }
 
+        public override void CalculateStatistics()
+        {
+            if (Students.Count < 5) 
+                Console.WriteLine("Ranked grading requires at least 5 students.");
+            else
+                base.CalculateStatistics();
+            
+        }
+
+        public override void CalculateStudentStatistics(string name)
+        {
+            if (Students.Count < 5)
+                Console.WriteLine("Ranked grading requires at least 5 students.");
+            else
+                base.CalculateStudentStatistics(name);
+
+        }
     }
+
 
 }
