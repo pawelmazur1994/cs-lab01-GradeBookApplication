@@ -111,14 +111,19 @@ namespace GradeBook.GradeBooks
             switch (letterGrade)
             {
                 case 'A':
+                    if (IsWeighted == true && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)) return 5;
                     return 4;
                 case 'B':
+                    if (IsWeighted == true && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)) return 4;
                     return 3;
                 case 'C':
+                    if (IsWeighted == true && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)) return 3;
                     return 2;
                 case 'D':
+                    if (IsWeighted == true && (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)) return 2;
                     return 1;
                 case 'F':
+                    if (studentType == StudentType.Honors || studentType == StudentType.DualEnrolled) return 1;
                     return 0;
             }
             return 0;
